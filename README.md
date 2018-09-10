@@ -1,6 +1,6 @@
 
   
-# [sscjs](https://github.com/harpagon210/sscjs) 
+# [sscjs](https://github.com/harpagon210/sscjs) [![Build Status](https://travis-ci.org/harpagon210/sscjs.svg?branch=master)](https://travis-ci.org/harpagon210/sscjs)
 
 Light javascript library to interact with the JSON RPC server of [a Steem Smart Contracts node](https://github.com/harpagon210/steemsmartcontracts)
 
