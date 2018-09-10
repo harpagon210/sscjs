@@ -26,7 +26,7 @@ Grab `dist/ssc.min.js` from a [release](https://github.com/harpagon210/sscjs/rel
 or from the [jsdelivr](cdn.jsdelivr.net) cdn:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/harpagon210/sscjs@0.0.1/dist/ssc.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/harpagon210/sscjs/dist/ssc.min.js"></script>
 ```
 
 
@@ -38,7 +38,7 @@ This library requires the [axios library](https://github.com/axios/axios)
 
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/sscjs/dist/ssc.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/harpagon210/sscjs/dist/ssc.min.js"></script>
 <script>
     const ssc = new SSC('https://steemsmartcontracts.tk:5000');
     ssc.getLatestBlockInfo((err, result) => {
