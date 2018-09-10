@@ -1,13 +1,17 @@
 {
-  "name": "sscjs",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ssc",
+  "version": "0.0.1",
+  "description": "a light javascript library to interact with the Steem Smart Contracts Sidechain",
   "main": "lib/ssc.js",
   "files": [
     "dist",
     "lib",
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harpagon210/sscjs"
+  },
   "scripts": {
     "lint": "eslint src tests",
     "test": "jest",
@@ -44,6 +48,6 @@
     "rollup-plugin-uglify": "^4.0.0"
   },
   "jest": {
-    "testRegex": "(/tests/.*\\.js)$"
+    "testRegex": "(/test/.*\\.js)$"
   }
 }
