@@ -118,6 +118,7 @@ ssc.getContractInfo('account', (err, result) => {
 findOneInTable(contract, table, query, callback  =  null)
 
 // example
+// See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
 ssc.findOneInTable(
 	'account', 
 	'accounts', 
@@ -160,6 +161,8 @@ ssc.findOneInTable(
 findInTable(contract, table, query, callback  =  null)
 
 // example
+// See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
+
 ssc.findInTable('account', 'accounts', { }, (err, result) => {
 	console.log(err, result);
 	/*
