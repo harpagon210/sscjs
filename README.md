@@ -15,15 +15,19 @@ For node.js or the browser with [browserify](https://github.com/substack/node-br
 npm install sscjs
 ```
 
-### From a cdn
+### From a cdn or self-hosted script
 
-From the [unpkg](https://unpkg.com) cdn:
+Grab `dist/ssc.min.js` from a [release](https://github.com/harpagon210/sscjs/releases) and include in your html:
 
 ```html
-<script src="https://unpkg.com/sscjs/dist/ssc.min.js"></script>
+<script src="ssc.min.js"></script>
 ```
 
-See [unpkg.com](https://unpkg.com) for more information.
+or from the [jsdelivr](cdn.jsdelivr.net) cdn:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/harpagon210/sscjs/dist/ssc.min.js"></script>
+```
 
 
 Usage
@@ -34,7 +38,7 @@ This library requires the [axios library](https://github.com/axios/axios)
 
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/sscjs/dist/ssc.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/harpagon210/sscjs/dist/ssc.min.js"></script>
 <script>
     const ssc = new SSC('https://steemsmartcontracts.tk:5000');
     ssc.getLatestBlockInfo((err, result) => {
@@ -114,6 +118,7 @@ ssc.getContractInfo('account', (err, result) => {
 findOneInTable(contract, table, query, callback  =  null)
 
 // example
+// See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
 ssc.findOneInTable(
 	'account', 
 	'accounts', 
@@ -156,6 +161,8 @@ ssc.findOneInTable(
 findInTable(contract, table, query, callback  =  null)
 
 // example
+// See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
+
 ssc.findInTable('account', 'accounts', { }, (err, result) => {
 	console.log(err, result);
 	/*
