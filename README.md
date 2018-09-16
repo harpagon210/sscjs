@@ -50,7 +50,7 @@ This library requires the [axios library](https://github.com/axios/axios)
 ### In node.js
 
 ```javascript
-const SSC = require('ssc');
+const SSC = require('sscjs');
 
 const ssc = new SSC('https://steemsmartcontracts.tk:5000');
 ssc.stream((err, res) => {
