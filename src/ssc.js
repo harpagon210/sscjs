@@ -130,9 +130,9 @@ export default class SSC {
    * @param {String} contract contract name
    * @param {String} table table name
    * @param {JSON} query query to perform on the table
-   * @param {Function} callback callback called if passed
    * @param {Integer} limit limit the number of records to retrieve
    * @param {Integer} offset offset applied to the records set
+   * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
    */
   findInTable(contract, table, query, limit = 1000, offset = 0, callback = null,) {
