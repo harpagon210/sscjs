@@ -32,6 +32,18 @@ describe('interaction with the SSC sidechain', () => {
     expect(response[1].symbol).toBe('SMMT');
   });
 
+  it('should get records from a table via pagination', async () => {
+    const ssc = new SSC(SSC_RPC_NODE);
+    let response = await ssc.findInTable('token', 'tokens', { }, 2);
+    expect(response[0].symbol).toBe('PKTC');
+    expect(response[1].symbol).toBe('SMMT');
+    response = await ssc.findInTable('token', 'tokens', { }, 2, 2);
+    expect(response[0].symbol).toBe('SMMKT');
+    expect(response[1].symbol).toBe('SMTT');
+    response = await ssc.findInTable('token', 'tokens', { }, 2, 4);
+    expect(response.length).toBe(0);
+  });
+
   it('should get the latest block of the sidechain', async () => {
     const ssc = new SSC(SSC_RPC_NODE);
     const response = await ssc.getLatestBlockInfo();

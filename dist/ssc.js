@@ -951,20 +951,26 @@
        * @param {String} table table name
        * @param {JSON} query query to perform on the table
        * @param {Function} callback callback called if passed
+       * @param {Integer} limit limit the number of records to retrieve
+       * @param {Integer} offset offset applied to the records set
        * @returns {Promise<JSON>} returns a promise if no callback passed
        */
 
     }, {
       key: 'findInTable',
       value: function findInTable(contract, table, query) {
-        var callback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+        var limit = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1000;
+        var offset = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+        var callback = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
 
         var request = {
           'method': 'findInTable',
           'params': {
             contract: contract,
             table: table,
-            query: query
+            query: query,
+            limit: limit,
+            offset: offset
           }
         };
 
@@ -1072,7 +1078,7 @@
           }, _callee, this, [[0, 9]]);
         }));
 
-        function streamFromTo(_x9) {
+        function streamFromTo(_x11) {
           return _ref.apply(this, arguments);
         }
 
@@ -1115,7 +1121,7 @@
           }, _callee2, this);
         }));
 
-        function stream(_x11) {
+        function stream(_x13) {
           return _ref2.apply(this, arguments);
         }
 
