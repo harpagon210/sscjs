@@ -148,7 +148,7 @@ ssc.findOneInTable(
    * @param {String} table table name
    * @param {JSON} query query to perform on the table
    * @param {Function} callback callback called if passed
-   * @param {Integer} limit limit the number of records to retrieve
+   * @param {Integer} limit limit the number of records to retrieve (max 1000)
    * @param {Integer} offset offset applied to the records set
    * @returns {Promise<JSON>} returns a promise if no callback passed
 */
