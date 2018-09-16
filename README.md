@@ -143,27 +143,22 @@ ssc.findOneInTable(
 
 ```javascript
 /**
-
-* retrieve records from the table of a contract
-
-* @param  {String}  contract contract name
-
-* @param  {String}  table table name
-
-* @param  {JSON}  query query to perform on the table
-
-* @param  {Function}  callback callback called if passed
-
-* @returns  {Promise<JSON>} returns a promise if no callback passed
-
+   * retrieve records from the table of a contract
+   * @param {String} contract contract name
+   * @param {String} table table name
+   * @param {JSON} query query to perform on the table
+   * @param {Function} callback callback called if passed
+   * @param {Integer} limit limit the number of records to retrieve
+   * @param {Integer} offset offset applied to the records set
+   * @returns {Promise<JSON>} returns a promise if no callback passed
 */
 
-findInTable(contract, table, query, callback  =  null)
+findInTable(contract, table, query, limit = 1000, offset = 0, callback  =  null)
 
 // example
 // See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
 
-ssc.findInTable('account', 'accounts', { }, (err, result) => {
+ssc.findInTable('account', 'accounts', { }, 1000, 0, (err, result) => {
 	console.log(err, result);
 	/*
 	[
