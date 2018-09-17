@@ -132,10 +132,12 @@ export default class SSC {
    * @param {JSON} query query to perform on the table
    * @param {Integer} limit limit the number of records to retrieve
    * @param {Integer} offset offset applied to the records set
+   * @param {String} index name of the index to use for the query
+   * @param {Boolean} descending the records set is sorted ascending if false, descending if true
    * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
    */
-  findInTable(contract, table, query, limit = 1000, offset = 0, callback = null,) {
+  findInTable(contract, table, query, limit = 1000, offset = 0, index = '', descending = false, callback = null) {
     const request = {
       'method': 'findInTable',
       'params': {
@@ -144,6 +146,8 @@ export default class SSC {
         query,
         limit,
         offset,
+        index,
+        descending,
       },
     };
 

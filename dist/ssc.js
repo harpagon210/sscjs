@@ -950,9 +950,11 @@
        * @param {String} contract contract name
        * @param {String} table table name
        * @param {JSON} query query to perform on the table
-       * @param {Function} callback callback called if passed
        * @param {Integer} limit limit the number of records to retrieve
        * @param {Integer} offset offset applied to the records set
+       * @param {String} index name of the index to use for the query
+       * @param {Boolean} descending the records set is sorted ascending if false, descending if true
+       * @param {Function} callback callback called if passed
        * @returns {Promise<JSON>} returns a promise if no callback passed
        */
 
@@ -961,7 +963,9 @@
       value: function findInTable(contract, table, query) {
         var limit = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1000;
         var offset = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
-        var callback = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+        var index = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : '';
+        var descending = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
+        var callback = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : null;
 
         var request = {
           'method': 'findInTable',
@@ -970,7 +974,9 @@
             table: table,
             query: query,
             limit: limit,
-            offset: offset
+            offset: offset,
+            index: index,
+            descending: descending
           }
         };
 
@@ -1078,7 +1084,7 @@
           }, _callee, this, [[0, 9]]);
         }));
 
-        function streamFromTo(_x11) {
+        function streamFromTo(_x13) {
           return _ref.apply(this, arguments);
         }
 
@@ -1121,7 +1127,7 @@
           }, _callee2, this);
         }));
 
-        function stream(_x13) {
+        function stream(_x15) {
           return _ref2.apply(this, arguments);
         }
 
