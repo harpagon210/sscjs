@@ -1,4 +1,5 @@
 
+
   
 # [sscjs](https://github.com/harpagon210/sscjs) [![Build Status](https://travis-ci.org/harpagon210/sscjs.svg?branch=master)](https://travis-ci.org/harpagon210/sscjs)
 
@@ -66,7 +67,7 @@ Available methods
 
 * Get the information of a contract (owner, source code, etc...)
 
-* @param  {String}  contract contract name
+* @param  {String}  name contract name
 
 * @param  {Function}  callback callback called if passed
 
@@ -115,11 +116,11 @@ ssc.getContractInfo('account', (err, result) => {
 
 */
 
-findOneInTable(contract, table, query, callback  =  null)
+findOne(contract, table, query, callback  =  null)
 
 // example
 // See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
-ssc.findOneInTable(
+ssc.findOne(
 	'account', 
 	'accounts', 
 	{ 
@@ -155,12 +156,12 @@ ssc.findOneInTable(
    * @returns {Promise<JSON>} returns a promise if no callback passed
 */
 
-findInTable(contract, table, query, limit = 1000, offset = 0, index = '', descending = false, callback = null) 
+find(contract, table, query, limit = 1000, offset = 0, index = '', descending = false, callback = null) 
 
 // example
 // See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
 
-ssc.findInTable('account', 'accounts', { }, 1000, 0, '', false, (err, result) => {
+ssc.find('account', 'accounts', { }, 1000, 0, '', false, (err, result) => {
 	console.log(err, result);
 	/*
 	[
