@@ -89,15 +89,15 @@ export default class SSC {
 
   /**
    * Get the information of a contract (owner, source code, etc...)
-   * @param {String} contract contract name
+   * @param {String} name contract name
    * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
    */
-  getContractInfo(contract, callback = null) {
+  getContractInfo(name, callback = null) {
     const request = {
       'method': 'getContract',
       'params': {
-        contract
+        name
       },
     };
 
@@ -112,9 +112,9 @@ export default class SSC {
    * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
    */
-  findOneInTable(contract, table, query, callback = null) {
+  findOne(contract, table, query, callback = null) {
     const request = {
-      'method': 'findOneInTable',
+      'method': 'findOne',
       'params': {
         contract,
         table,
@@ -137,9 +137,9 @@ export default class SSC {
    * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
    */
-  findInTable(contract, table, query, limit = 1000, offset = 0, index = '', descending = false, callback = null) {
+  find(contract, table, query, limit = 1000, offset = 0, index = '', descending = false, callback = null) {
     const request = {
-      'method': 'findInTable',
+      'method': 'find',
       'params': {
         contract,
         table,
@@ -176,7 +176,7 @@ export default class SSC {
   getBlockInfo(blockNumber, callback = null) {
     const request = {
       'method': 'getBlockInfo',
-      "params": {
+      'params': {
         blockNumber
       }
     };
