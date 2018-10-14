@@ -899,20 +899,20 @@
 
       /**
        * Get the information of a contract (owner, source code, etc...)
-       * @param {String} contract contract name
+       * @param {String} name contract name
        * @param {Function} callback callback called if passed
        * @returns {Promise<JSON>} returns a promise if no callback passed
        */
 
     }, {
       key: 'getContractInfo',
-      value: function getContractInfo(contract) {
+      value: function getContractInfo(name) {
         var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
         var request = {
           'method': 'getContract',
           'params': {
-            contract: contract
+            name: name
           }
         };
 
@@ -929,12 +929,12 @@
        */
 
     }, {
-      key: 'findOneInTable',
-      value: function findOneInTable(contract, table, query) {
+      key: 'findOne',
+      value: function findOne(contract, table, query) {
         var callback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
         var request = {
-          'method': 'findOneInTable',
+          'method': 'findOne',
           'params': {
             contract: contract,
             table: table,
@@ -959,8 +959,8 @@
        */
 
     }, {
-      key: 'findInTable',
-      value: function findInTable(contract, table, query) {
+      key: 'find',
+      value: function find(contract, table, query) {
         var limit = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1000;
         var offset = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
         var index = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : '';
@@ -968,7 +968,7 @@
         var callback = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : null;
 
         var request = {
-          'method': 'findInTable',
+          'method': 'find',
           'params': {
             contract: contract,
             table: table,
@@ -1015,7 +1015,7 @@
 
         var request = {
           'method': 'getBlockInfo',
-          "params": {
+          'params': {
             blockNumber: blockNumber
           }
         };
