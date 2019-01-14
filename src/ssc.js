@@ -132,12 +132,11 @@ export default class SSC {
    * @param {JSON} query query to perform on the table
    * @param {Integer} limit limit the number of records to retrieve
    * @param {Integer} offset offset applied to the records set
-   * @param {String} index name of the index to use for the query
-   * @param {Boolean} descending the records set is sorted ascending if false, descending if true
+   * @param {Array<Object>} indexes array of index definitions { index: string, descending: boolean }
    * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
    */
-  find(contract, table, query, limit = 1000, offset = 0, index = '', descending = false, callback = null) {
+  find(contract, table, query, limit = 1000, offset = 0, indexes = [], callback = null) {
     const request = {
       'method': 'find',
       'params': {
@@ -146,8 +145,7 @@ export default class SSC {
         query,
         limit,
         offset,
-        index,
-        descending,
+        indexes,
       },
     };
 
