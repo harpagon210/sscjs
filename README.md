@@ -24,10 +24,10 @@ Grab `dist/ssc.min.js` from a [release](https://github.com/harpagon210/sscjs/rel
 <script src="ssc.min.js"></script>
 ```
 
-or from the [jsdelivr](cdn.jsdelivr.net) cdn:
+or from the [jsdelivr](https://cdn.jsdelivr.net) cdn:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/harpagon210/sscjs/dist/ssc.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sscjs@latest/dist/ssc.min.js"></script>
 ```
 
 
@@ -39,7 +39,7 @@ This library requires the [axios library](https://github.com/axios/axios)
 
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/harpagon210/sscjs/dist/ssc.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sscjs@latest/dist/ssc.min.js"></script>
 <script>
     const ssc = new SSC('https://steemsmartcontracts.tk:5000');
     ssc.getLatestBlockInfo((err, result) => {
@@ -150,18 +150,17 @@ ssc.findOne(
    * @param {JSON} query query to perform on the table
    * @param {Integer} limit limit the number of records to retrieve
    * @param {Integer} offset offset applied to the records set
-   * @param {String} index name of the index to use for the query
-   * @param {Boolean} descending the records set is sorted ascending if false, descending if true
+   * @param {Array<Object>} indexes array of index definitions { index: string, descending: boolean }
    * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
 */
 
-find(contract, table, query, limit = 1000, offset = 0, index = '', descending = false, callback = null) 
+find(contract, table, query, limit = 1000, offset = 0, indexes = [], callback = null) 
 
 // example
 // See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
 
-ssc.find('account', 'accounts', { }, 1000, 0, '', false, (err, result) => {
+ssc.find('account', 'accounts', { }, 1000, 0, [], (err, result) => {
 	console.log(err, result);
 	/*
 	[
