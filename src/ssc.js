@@ -167,7 +167,7 @@ export default class SSC {
 
   /**
    * retrieve the specified block info of the sidechain
-   * @param {Number} blockNumber contract name
+   * @param {Number} blockNumber block number
    * @param {Function} callback callback called if passed
    * @returns {Promise<JSON>} returns a promise if no callback passed
    */
@@ -176,6 +176,23 @@ export default class SSC {
       'method': 'getBlockInfo',
       'params': {
         blockNumber
+      }
+    };
+
+    return this.send(BLOCKCHAIN_API, request, callback);
+  }
+
+  /**
+   * retrieve the specified transaction info of the sidechain
+   * @param {String} txid transaction id
+   * @param {Function} callback callback called if passed
+   * @returns {Promise<JSON>} returns a promise if no callback passed
+   */
+  getTransactionInfo(txid, callback = null) {
+    const request = {
+      'method': 'getTransactionInfo',
+      'params': {
+        txid
       }
     };
 

@@ -1,6 +1,6 @@
 {
   "name": "sscjs",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a light javascript library to interact with the Steem Smart Contracts Sidechain",
   "main": "lib/ssc.js",
   "files": [
