@@ -41,7 +41,7 @@ This library requires the [axios library](https://github.com/axios/axios)
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sscjs@latest/dist/ssc.min.js"></script>
 <script>
-    const ssc = new SSC('https://steemsmartcontracts.tk:5000');
+    const ssc = new SSC('https://testapi.steem-engine.com');
     ssc.getLatestBlockInfo((err, result) => {
 		console.log(err, result);
 	});
@@ -53,7 +53,7 @@ This library requires the [axios library](https://github.com/axios/axios)
 ```javascript
 const SSC = require('sscjs');
 
-const ssc = new SSC('https://steemsmartcontracts.tk:5000');
+const ssc = new SSC('https://testapi.steem-engine.com');
 ssc.stream((err, res) => {
 	console.log(err, res);
 });
