@@ -1000,7 +1000,7 @@
 
       /**
        * retrieve the specified block info of the sidechain
-       * @param {Number} blockNumber contract name
+       * @param {Number} blockNumber block number
        * @param {Function} callback callback called if passed
        * @returns {Promise<JSON>} returns a promise if no callback passed
        */
@@ -1014,6 +1014,28 @@
           'method': 'getBlockInfo',
           'params': {
             blockNumber: blockNumber
+          }
+        };
+
+        return this.send(BLOCKCHAIN_API, request, callback);
+      }
+
+      /**
+       * retrieve the specified transaction info of the sidechain
+       * @param {String} txid transaction id
+       * @param {Function} callback callback called if passed
+       * @returns {Promise<JSON>} returns a promise if no callback passed
+       */
+
+    }, {
+      key: 'getTransactionInfo',
+      value: function getTransactionInfo(txid) {
+        var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+        var request = {
+          'method': 'getTransactionInfo',
+          'params': {
+            txid: txid
           }
         };
 
@@ -1081,7 +1103,7 @@
           }, _callee, this, [[0, 9]]);
         }));
 
-        function streamFromTo(_x12) {
+        function streamFromTo(_x13) {
           return _ref.apply(this, arguments);
         }
 
@@ -1124,7 +1146,7 @@
           }, _callee2, this);
         }));
 
-        function stream(_x14) {
+        function stream(_x15) {
           return _ref2.apply(this, arguments);
         }
 
