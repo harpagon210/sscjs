@@ -78,21 +78,17 @@ Available methods
 getContractInfo(contract, callback  =  null)
 
 // example
-ssc.getContractInfo('account', (err, result) => {
+ssc.getContractInfo('tokens', (err, result) => {
 	console.log(err, result);
 	/*
 	{
-	    "name": "account",
-	    "owner": "harpagon",
+	    "name": "tokens",
+	    "owner": "steemsc",
 	    "code": "...source code of the contract...",
 	    "tables": [
-	        "account_accounts"
+	        "tokens_tokens",
+		...
 	    ],
-	    "meta": {
-	        "revision": 0,
-	        "created": 1536012789812,
-	        "version": 0
-	    },
 	    "$loki": 1
 	}
 	*/
@@ -121,23 +117,20 @@ findOne(contract, table, query, callback  =  null)
 // example
 // See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
 ssc.findOne(
-	'account', 
-	'accounts', 
+	'tokens', 
+	'balances', 
 	{ 
-		id:  'harpagon' 
+		account:  'harpagon' 
 	}, (err, result) => {
 
 	console.log(err, result);
 	/*
 	{
-	    "id": "harpagon",
-	    "meta": {
-	        "revision": 0,
-	        "created": 1536012984753,
-	        "version": 0
-	    },
-	    "$loki": 1
-	}
+            "account": "harpagon",
+            "symbol": "SSC",
+            "balance": 3.0005,
+            "$loki": 6
+        }
 	*/
 })
 ```
@@ -160,28 +153,29 @@ find(contract, table, query, limit = 1000, offset = 0, indexes = [], callback = 
 // example
 // See https://github.com/techfort/LokiJS/wiki/Query-Examples for the available params
 
-ssc.find('account', 'accounts', { }, 1000, 0, [], (err, result) => {
+ssc.find('tokens', 'tokens', { }, 1000, 0, [], (err, result) => {
 	console.log(err, result);
 	/*
 	[
-	    {
-	        "id": "harpagon",
-	        "meta": {
-	            "revision": 0,
-	            "created": 1536012984753,
-	            "version": 0
-	        },
-	        "$loki": 1
-	    },
-	    {
-	        "id": "smmarkettoken",
-	        "meta": {
-	            "revision": 0,
-	            "created": 1536460107491,
-	            "version": 0
-	        },
-	        "$loki": 2
-	    }
+	    	{
+		    "issuer": "steemsc",
+		    "symbol": "STEEMP",
+		    "name": "STEEM Pegged",
+		    "precision": 3,
+		    "maxSupply": 1000000000000,
+		    "supply": 1000000000000,
+		    "$loki": 1
+		},
+		{
+		    "issuer": "null",
+		    "symbol": "SSC",
+		    "name": "Steem Smart Contracts Token",
+		    "url": "https://steemsmartcontracts.com",
+		    "precision": 8,
+		    "maxSupply": 1000000000000,
+		    "supply": 250000000,
+		    "$loki": 2
+		},
 	]
 	*/
 })
