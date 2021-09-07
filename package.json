@@ -1,6 +1,6 @@
 {
   "name": "sscjs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a light javascript library to interact with the Steem Smart Contracts Sidechain",
   "main": "lib/ssc.js",
   "files": [
@@ -27,7 +27,7 @@
   "author": "harpagon210 <harpagon210@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.21.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
