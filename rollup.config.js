@@ -7,7 +7,7 @@ import regenerator from 'rollup-plugin-regenerator';
 const { BUILD_TYPE, NODE_ENV } = process.env;
 
 const config = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   plugins: [],
   output: {
     globals: {
@@ -28,7 +28,7 @@ if (BUILD_TYPE === 'cjs') {
 }
 
 if (BUILD_TYPE === 'umd') {
-  config.output = {  ...config.output, format: 'umd', name: 'SSC' };
+  config.output = { ...config.output, format: 'umd', name: 'SSC' };
   config.plugins.push(babel(babelConfig));
 }
 
